@@ -33,8 +33,7 @@ class YoutubePlayerBuilder extends StatefulWidget {
   State<YoutubePlayerBuilder> createState() => _YoutubePlayerBuilderState();
 }
 
-class _YoutubePlayerBuilderState extends State<YoutubePlayerBuilder>
-    with WidgetsBindingObserver {
+class _YoutubePlayerBuilderState extends State<YoutubePlayerBuilder> with WidgetsBindingObserver {
   final GlobalKey playerKey = GlobalKey();
 
   @override
@@ -75,7 +74,7 @@ class _YoutubePlayerBuilderState extends State<YoutubePlayerBuilder>
       height: orientation == Orientation.landscape ? height : null,
       child: PopScope(
         canPop: !widget.player.controller.value.isFullScreen,
-        onPopInvokedWithResult: (didPop, _) {
+        onPopInvoked: (didPop) {
           if (didPop) return;
           final controller = widget.player.controller;
           if (controller.value.isFullScreen) {
